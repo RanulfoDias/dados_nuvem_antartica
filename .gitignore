@@ -1,0 +1,28 @@
+.venv/
+__pycache__/
+*.egg-info/
+build/
+dist/
+config.toml
+data/
+logs/
+*service-account*.json
+*credentials*.json
+
+secrets/
+*drive-token*.json
+*drive-client*.json
+
+*.drive-link.json
+
+# Local environments, configuration and collected data
+.venv-*/
+config.*.toml
+!config.example.toml
+incoming/
+.DS_Store
+.env
+.env.*
+.pytest_cache/
+# Local setup screenshots
+/*.png

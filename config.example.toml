@@ -1,0 +1,35 @@
+[bridge]
+# Paths relative to this configuration file; use TOML literal strings for Windows.
+watch_directory = 'C:\MAESTRO\Spectra'
+database = 'data\bridge.sqlite3'
+log_file = 'logs\bridge.log'
+acquisition_timezone = 'America/Sao_Paulo'
+stable_seconds = 3
+poll_seconds = 1
+sync_seconds = 30
+batch_size = 100
+# Only for ambiguous daylight-saving local times: 0=first occurrence, 1=second.
+# ambiguous_fold = 0
+
+[drive]
+enabled = false
+folder_id = ''
+client_secrets_file = 'secrets/drive-client.json'
+token_file = 'secrets/drive-token.json'
+
+# Optional exact filename mapping when SPEC_REM has no DET#.
+# Conflicts with a DET# in the file are rejected. IDs: 1, 2, 3, 4, 5, 7.
+[detector_by_filename]
+# 'detector7.SPE' = 7
+
+[ui]
+enabled = true
+port = 8765
+
+[firebase_status]
+# Operational settings/status only. SPE and scientific JSON remain in Google Drive.
+enabled = false
+project_id = 'banco-de-dados-da-antartica'
+instance_id = 'estacao-ferraz'
+credentials_file = ''
+heartbeat_seconds = 60

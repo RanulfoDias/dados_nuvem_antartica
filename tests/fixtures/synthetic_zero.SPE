@@ -1,0 +1,25 @@
+$SPEC_ID:
+Synthetic detector 1
+$SPEC_REM:
+DET# 1
+$DATE_MEA:
+10/14/2026 12:30:00
+$MEAS_TIM:
+600 600
+$DATA:
+0 3
+0
+0
+0
+0
+$ROI:
+1
+0 3
+$ENER_FIT:
+0.0 1.0
+$MCA_CAL:
+2
+0.0 1.0 keV
+$SHAPE_CAL:
+3
+0.0 1.0 0.0

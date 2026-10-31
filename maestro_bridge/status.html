@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Estação Antártica Comandante Ferraz · Aquisições</title>
+<style>
+:root{font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#1a2e48;background:#f1f4f8;color-scheme:light;font-synthesis:none}*{box-sizing:border-box}body{margin:0}button,input{font:inherit}a{color:#245b9e;text-underline-offset:3px}button,a,input{ -webkit-tap-highlight-color:transparent}button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid #75a5df;outline-offset:3px}[hidden]{display:none!important}
+.topbar{height:76px;background:#fff;border-bottom:1px solid #e0e8eb;display:flex;align-items:center;justify-content:space-between;padding:0 40px;gap:16px}.brand{display:flex;align-items:center;gap:12px}.brand-mark{width:38px;height:38px;background:#163b65;color:#e9c46b;display:grid;place-items:center;border-radius:10px}.brand strong{display:block;font-size:16px;letter-spacing:.14em}.brand small{display:block;font-size:11px;color:#627681;margin-top:3px}.station{font-size:12px;color:#647984;display:flex;gap:10px;align-items:center}.station span{width:7px;height:7px;background:#718792;border-radius:50%}
+main{max-width:1240px;margin:auto;padding:36px 40px 24px}.intro{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-bottom:28px}.eyebrow{text-transform:uppercase;letter-spacing:.15em;font-size:10px;font-weight:700;color:#547480;margin:0 0 10px}h1{font-size:32px;line-height:1.2;letter-spacing:-1.1px;font-weight:650;margin:0 0 10px}.subtitle{font-size:14px;color:#647984;line-height:1.6;margin:0}.local-chip{border:1px solid #dce5e8;border-radius:7px;padding:9px 12px;font-size:11px;white-space:nowrap;background:#fff;color:#546b75}
+.metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-bottom:26px}.metric{background:#fff;border:1px solid #dfe7ea;padding:20px 22px;border-radius:12px;position:relative}.metric:first-child{background:#163b65;border-color:#163b65;color:#fff}.metric span{font-size:12px;font-weight:500;color:#617680}.metric:first-child span,.metric:first-child small{color:#c1d4ec}.metric strong{display:block;font-size:36px;line-height:1.1;letter-spacing:-1px;font-weight:600;font-variant-numeric:tabular-nums;margin:16px 0 9px}.metric small{font-size:10px;color:#718590}.metric .mark{position:absolute;right:20px;top:19px;font-size:17px;color:#78949f}.metric:first-child .mark{color:#e9c46b}
+.workspace{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(300px,1fr);gap:22px;align-items:start}.column{display:grid;gap:20px;min-width:0}.card{background:#fff;border:1px solid #dfe7ea;border-radius:12px;overflow:hidden}.card-heading{display:flex;align-items:center;gap:12px;padding:21px 24px;border-bottom:1px solid #edf1f3}.icon{width:34px;height:34px;flex-shrink:0;background:#edf3fb;border-radius:8px;display:grid;place-items:center;color:#3468a0}.icon svg{width:19px;height:19px}h2{font-size:14px;font-weight:650;margin:0;letter-spacing:-.15px}.card-heading p{font-size:11px;color:#748791;margin:5px 0 0}.card-body{padding:22px 24px}.service{padding:20px 24px}.service+.service{border-top:1px solid #edf1f3}.service-title{display:flex;justify-content:space-between;gap:12px;align-items:center}.service h3{font-size:12px;font-weight:600;margin:0}.badge{display:inline-flex;align-items:center;gap:6px;border-radius:6px;background:#eef2f5;color:#526a75;padding:6px 9px;font-size:10px;font-weight:650;white-space:nowrap}.badge:before{content:'';background:currentColor;width:5px;height:5px;border-radius:50%;flex-shrink:0}.good{color:#207054;background:#eaf5ef}.warn{color:#916318;background:#fcf3e1}.bad{color:#ac3949;background:#fbecef}.hint{color:#677c86;font-size:12px;line-height:1.7;margin:12px 0 0}.service .hint{font-size:11px;margin-top:8px}.destination label{display:block;font-size:11px;font-weight:600;margin-bottom:9px}.destination input{width:100%;height:44px;padding:11px 12px;border:1px solid #cfdde2;border-radius:7px;color:#2f4e5d;background:#fbfcfd;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:12px;min-width:0}.destination input:focus{border-color:#245b9e;background:#fff}.destination form{display:flex;gap:10px;align-items:end}.destination form>div{flex:1;min-width:0}button{display:inline-flex;justify-content:center;align-items:center;gap:7px;border:1px solid #cfdde2;border-radius:7px;background:#fff;color:#365661;font-size:12px;font-weight:600;padding:10px 14px;cursor:pointer;min-height:40px;transition:background .15s,border-color .15s}button:hover{background:#f0f6f7;border-color:#a6c6cf}button.primary{background:#245b9e;color:white;border-color:#245b9e;min-height:44px;white-space:nowrap}button.primary:hover{background:#19477f;border-color:#19477f}button:disabled{opacity:.55;cursor:wait}.helper-note{display:flex;gap:8px;background:#f6f9fa;padding:12px;border-radius:7px;margin-top:17px;color:#637b85;font-size:11px;line-height:1.6}.helper-note svg{flex-shrink:0;width:15px;height:15px;margin-top:2px}.feedback{font-size:12px;line-height:1.6;color:#245b9e;overflow-wrap:anywhere;margin:12px 0 0}.feedback:empty{display:none}.connection-row{display:flex;gap:12px;align-items:center;justify-content:space-between;margin-bottom:16px}.connection-row p{margin:0}.account{font-size:11px;color:#607985;overflow-wrap:anywhere}.destination-location{font-size:11px;padding:12px 0;border-top:1px solid #edf1f3;margin-top:18px;color:#73848d;display:flex;gap:12px;justify-content:space-between}.destination-location a{overflow-wrap:anywhere;text-align:right}details{border-top:1px solid #edf1f3;padding-top:13px}summary{font-size:11px;color:#57727e;cursor:pointer}details .hint{font-size:11px}code{font-size:10px;overflow-wrap:anywhere}#authLink{font-size:12px;display:inline-block;margin-bottom:10px}dl{margin:0}dt{font-size:11px;color:#72848d;margin-bottom:6px}dd{margin:0 0 18px;font-size:12px;color:#2d4c59;font-variant-numeric:tabular-nums}dd:last-child{margin-bottom:0}.activity-note{border-top:1px solid #edf1f3;padding:13px 24px;font-size:10px;color:#74868f;background:#fcfdfd;line-height:1.6}.footer{display:flex;justify-content:space-between;gap:16px;align-items:center;margin-top:24px;padding-top:20px;border-top:1px solid #dfe7ea;font-size:10px;color:#778b95}.footer-brand{letter-spacing:.1em;font-weight:600}#notice{margin-bottom:20px;padding:14px 16px;border:1px solid #efdcac;border-radius:8px;background:#fff7e7;color:#805b22;font-size:12px;line-height:1.6}
+@media(min-width:1400px){main{padding-top:44px}}@media(max-width:800px){main{padding:28px 24px}.topbar{padding:0 24px}.workspace{grid-template-columns:1fr}.column{gap:18px}.metrics{gap:12px}.metric{padding:18px}.station{font-size:11px}.metric .mark{display:none}}@media(max-width:580px){.topbar{height:66px;padding:0 18px}.station{display:none}main{padding:24px 16px}.intro{align-items:flex-start}.local-chip{display:none}h1{font-size:27px}.subtitle{font-size:12px}.metrics{grid-template-columns:1fr 1fr;gap:10px}.metric strong{font-size:30px}.metric span{font-size:11px}.card-heading,.card-body,.service{padding:18px}.destination form{flex-direction:column;align-items:stretch}.connection-row{flex-wrap:wrap}.footer{align-items:flex-start;flex-direction:column}.service-title{flex-wrap:wrap}.card-heading p{line-height:1.5}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+
+.path-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:12px;flex-wrap:wrap}.destination form{display:block}
+dialog{width:min(600px,calc(100vw - 32px));padding:0;border:1px solid #dfe7ea;border-radius:14px;color:#1a2e48;box-shadow:0 24px 80px #163b6533}dialog::backdrop{background:#102f4680;backdrop-filter:blur(3px)}.picker-header{display:flex;justify-content:space-between;align-items:center;padding:20px 24px;border-bottom:1px solid #edf1f3}.picker-body{padding:18px 24px}.picker-toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}.picker-path{font:12px ui-monospace,monospace;overflow-wrap:anywhere;background:#f3f7f8;padding:12px;border-radius:7px;margin-bottom:12px}.folder-list{height:260px;overflow:auto;border:1px solid #dfe7ea;border-radius:8px}.folder-list button{display:flex;width:100%;border:0;border-radius:0;text-align:left;justify-content:flex-start;padding:12px;font-weight:400;overflow-wrap:anywhere}.folder-list button+button{border-top:1px solid #edf1f3}.picker-footer{display:flex;gap:10px;justify-content:flex-end;padding:16px 24px;border-top:1px solid #edf1f3}.picker-info{font-size:12px;color:#627681;line-height:1.6}.picker-error{color:#ac3949;font-size:12px;line-height:1.5}
+
+.brand strong{font-size:16px;letter-spacing:-.2px;line-height:1.35}.brand-mark{flex-shrink:0}.brand{min-width:270px}
+.smtp-details{margin-top:18px}.destination .smtp-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px}.smtp-wide{grid-column:1/-1}.smtp-grid select{width:100%;min-height:44px;border:1px solid #cfdde2;border-radius:7px;background:#fbfcfd;color:#2f4e5d;padding:8px;font:inherit;font-size:11px}.smtp-grid input{font-family:inherit}.smtp-grid .path-actions{margin:0}#notificationEmail{font-family:inherit}#emailStatus{display:block}@media(max-width:420px){.destination .smtp-grid{grid-template-columns:1fr}.smtp-wide{grid-column:auto}}
+.startup-toggle{display:flex;align-items:center;gap:10px;font-size:12px;cursor:pointer;line-height:1.5}.startup-toggle input{width:18px;height:18px;accent-color:#245b9e;flex-shrink:0}.startup-label{display:block;font-size:11px;font-weight:600;margin:20px 0 8px}#startupMode{width:100%;min-height:44px;padding:8px;border:1px solid #cfdde2;border-radius:7px;background:#fbfcfd;color:#2f4e5d;font-size:11px}#startupStatus{display:block}
+.mail-summary{display:flex;justify-content:space-between;align-items:center;gap:14px}.mail-caption{display:block;font-size:10px;color:#72848d;margin-bottom:7px}.mail-summary strong{font-size:12px;font-weight:600;overflow-wrap:anywhere}.mail-summary>div{min-width:0}.email-dialog{margin:auto;width:min(640px,calc(100vw - 32px));max-height:90vh;max-height:90dvh;padding:0}.email-dialog[open]{display:flex;flex-direction:column}.email-dialog .picker-header,.email-dialog .picker-footer{flex-shrink:0;background:#fff}.email-dialog .picker-header{gap:16px}.email-dialog .picker-header .hint{margin-top:6px;font-size:11px}.email-dialog-body{padding:24px;overflow-y:auto;min-height:0}.mail-section-title{display:flex;align-items:center;gap:10px;margin-bottom:18px}.mail-section-title span{background:#edf3fb;border-radius:6px;padding:6px;color:#3468a0;font-size:10px;font-weight:700}.mail-section-title h3{margin:0;font-size:12px}.email-dialog .smtp-details{margin-top:24px;padding-top:20px}.email-dialog .smtp-details summary{font-size:12px;font-weight:600;color:#24415f}.mail-footer-hint{font-size:10px;color:#72848d;line-height:1.5;margin-right:auto;max-width:270px}.email-dialog .picker-footer{align-items:center}.email-dialog input{font-family:inherit}@media(max-width:580px){.email-dialog-body{padding:18px}.email-dialog .picker-header,.email-dialog .picker-footer{padding:16px 18px}.mail-summary{align-items:flex-start;flex-direction:column}}
+
+.topbar{height:auto;min-height:112px;padding:16px 40px;border-top:4px solid #163b65;flex-direction:row;align-items:center}
+.brand{min-width:0;gap:16px}.station-logo{width:76px;height:76px;object-fit:contain;flex-shrink:0}
+.proantar-mark{display:block;flex-shrink:0;margin-left:auto}.proantar-mark img{display:block;width:88px;height:80px;object-fit:contain}
+.page-footer{margin-top:24px}.footer-institutions{display:grid;gap:16px;background:#fff;border:1px solid #dfe7ea;border-radius:12px;padding:20px 20px}
+.institution-row{display:flex;justify-content:center;align-items:start;gap:24px}
+.institution-row>a,.institution-row>figure{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;margin:0;width:96px;min-width:0;color:#24415f;text-align:center;text-decoration:none}
+.institution-row img{display:block;width:80px;height:56px;object-fit:contain}.institution-row strong,.institution-row figcaption{font-size:11px;font-weight:650;line-height:1.5}
+.institution-row:first-child img{height:60px}.institution-row:last-child img{width:90px;height:60px}
+.footer{margin-top:18px}
+@media(max-width:580px){.topbar{padding:12px 16px;gap:12px;min-height:92px}.brand{gap:10px}.brand strong{font-size:12px}.station-logo{width:54px;height:54px}.proantar-mark img{width:60px;height:60px}.footer-institutions{padding:16px 12px;gap:14px}.institution-row{gap:12px}.institution-row>a,.institution-row>figure{width:calc((100% - 36px)/4);gap:8px}.institution-row:first-child>a,.institution-row:last-child>figure{width:90px}.institution-row img{width:100%;max-width:72px;height:48px}.institution-row:last-child img{width:100%;max-width:84px;height:52px}.institution-row strong,.institution-row figcaption{font-size:10px}}
+</style></head><body>
+<header class="topbar"><div class="brand"><img class="station-logo" src="/assets/ferraz.png" alt="Brasão da Estação Antártica Comandante Ferraz"><strong>Estação Antártica<br>Comandante Ferraz</strong></div><a class="proantar-mark" href="https://www.marinha.mil.br/secirm/pt-br/proantar" target="_blank" rel="noopener noreferrer" title="Programa Antártico Brasileiro"><img class="proantar-symbol" src="/assets/proantar.png" alt="Logotipo do PROANTAR"></a></header>
+<main>
+<div class="intro"><div><p class="eyebrow">Espectrometria de nêutrons</p><h1>Painel de aquisições</h1><p class="subtitle">Acompanhe a coleta, configure a origem e gerencie o envio dos espectros.</p></div><span class="local-chip">Acesso local · Este computador</span></div>
+<div id="notice" role="status" hidden></div>
+<section class="metrics" aria-label="Fila de aquisições">
+<div class="metric"><span>Recebidas</span><span class="mark" aria-hidden="true">↓</span><strong id="total">—</strong><small>Aquisições armazenadas</small></div>
+<div class="metric"><span>Pendentes / em envio</span><span class="mark" aria-hidden="true">↗</span><strong id="pending">—</strong><small>Na fila de sincronização</small></div>
+<div class="metric"><span>Sincronizadas</span><span class="mark" aria-hidden="true">✓</span><strong id="synced">—</strong><small>Confirmadas no destino</small></div>
+<div class="metric"><span>Com erro de envio</span><span class="mark" aria-hidden="true">!</span><strong id="errors">—</strong><small>Aguardando nova tentativa</small></div>
+</section>
+<div class="workspace"><div class="column">
+<section class="card destination" aria-label="Pasta do MAESTRO"><div class="card-heading"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 7V5h6l2 2h10v13H3Z"/><path d="M3 10h18"/></svg></span><div><h2>Pasta de aquisições do MAESTRO</h2><p>Origem dos arquivos do instrumento</p></div></div>
+<div class="card-body"><form id="watchForm"><div><label for="watchPath">Caminho da pasta neste computador</label><input id="watchPath" type="text" required autocomplete="off" spellcheck="false" placeholder="C:\MAESTRO\Spectra" aria-describedby="pathHelp"></div><div class="path-actions"><button id="chooseWatch" type="button">Selecionar pasta</button><button id="saveWatch" class="primary" type="submit">Salvar pasta</button></div></form>
+<p id="pathHelp" class="hint">Informe a pasta onde o MAESTRO grava os arquivos .SPE.</p><div class="helper-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M5 3h12l3 3v15H4V3Z"/><path d="M8 3v6h8V3M8 21v-7h8v7"/></svg><span>O caminho fica salvo após reiniciar o computador. A mudança é aplicada no próximo ciclo do monitor.</span></div><p id="watchMessage" class="feedback" role="status" aria-live="polite"></p><form id="uploadScheduleForm" style="margin-top:20px"><div><label for="uploadTime">Horário diário de envio</label><input id="uploadTime" type="time" required></div><button id="saveUploadTime" class="primary" type="submit">Salvar horário</button></form><p id="uploadScheduleStatus" class="helper-note">Configure o horário diário para iniciar os envios.</p><p class="hint">Todos os dias, a partir do horário escolhido, envia os .SPE do MAESTRO modificados naquele dia, com o nome original e sem JSON, para a pasta diária no Drive. Arquivos já enviados não são repetidos. O computador e o programa devem estar ligados, em modo online. Se iniciar depois do horário, envia os pendentes do dia no próximo ciclo.</p><p id="uploadTimeMessage" class="feedback" role="status" aria-live="polite"></p></div></section>
+<section class="card destination" aria-label="Pasta do Sensor Arduino"><div class="card-heading"><span class="icon" aria-hidden="true">℃</span><div><h2>Pasta de aquisições do Sensor Arduino</h2><p>Arquivos de temperatura em formato .txt</p></div></div><div class="card-body"><form id="arduinoForm"><div><label for="arduinoPath">Caminho da pasta do Sensor Arduino</label><input id="arduinoPath" type="text" required autocomplete="off" spellcheck="false" placeholder="Selecione a pasta dos arquivos .txt"></div><div class="path-actions"><button id="chooseArduino" type="button">Selecionar pasta</button><button id="saveArduino" class="primary" type="submit">Salvar pasta</button></div></form><p class="hint">Usa o horário próprio do Arduino e a data de modificação dos arquivos. Reúne os registros em um único TXT por dia no Drive, atualizado no mesmo arquivo. Mantém o nome do primeiro TXT do dia, sem JSON e sem repetir linhas idênticas.</p><p class="hint"><code>dados_do_espectrometro / sensor_arduino / dd_mm_aaaa / arquivo.txt</code></p><form id="arduinoScheduleForm" style="margin-top:20px"><div><label for="arduinoUploadTime">Horário diário de envio do Sensor Arduino</label><input id="arduinoUploadTime" type="time" required></div><button id="saveArduinoTime" class="primary" type="submit">Salvar horário</button></form><p id="arduinoScheduleStatus" class="helper-note"></p><p id="arduinoTimeMessage" class="feedback" role="status" aria-live="polite"></p><p id="arduinoStatus" class="helper-note">Pasta não configurada.</p><p id="arduinoCounts" class="hint"></p><p id="arduinoMessage" class="feedback" role="status" aria-live="polite"></p></div></section>
+<section class="card destination" aria-label="Vínculo com Google Drive"><div class="card-heading"><span class="icon"><svg viewBox="0 0 87.3 78" role="img" aria-label="Google Drive"><path fill="#0066da" d="M29.1 52 14.55 77.2h58.2L87.3 52z"/><path fill="#00ac47" d="M29.1 1.6 0 52l14.55 25.2 29.1-50.4z"/><path fill="#ffba00" d="M29.1 1.6h29.1L87.3 52H58.2z"/></svg></span><div><h2>Armazenamento no Google Drive</h2><p>Arquivos SPE originais organizados por dia</p></div></div><div class="card-body">
+<details id="driveSetup" style="margin-bottom:18px"><summary>Configuração do Google Drive</summary>
+<p id="driveSetupStatus" class="feedback" role="status"></p>
+<ol class="hint"><li>No Google Cloud, crie ou selecione um projeto e habilite a Google Drive API.</li><li>Configure a tela de consentimento na Plataforma de autenticação do Google. Para conta pessoal, use público Externo e adicione seu e-mail aos usuários de teste.</li><li>Em Clientes, crie um cliente OAuth do tipo Aplicativo para computador e baixe o JSON.</li><li>Informe abaixo o caminho do arquivo neste computador. Salve e clique em Vincular Drive.</li></ol>
+<p class="hint"><a href="https://developers.google.com/workspace/drive/api/quickstart/python?hl=pt-br" target="_blank" rel="noopener noreferrer">Abrir instruções oficiais do Google ↗</a></p>
+<form id="driveClientForm" style="margin-top:16px"><label for="driveClientPath">Caminho do arquivo JSON OAuth</label><input id="driveClientPath" type="text" spellcheck="false" autocomplete="off"><div class="path-actions"><button id="saveDriveClient" type="submit">Salvar configuração</button></div></form><p id="driveClientMessage" class="feedback" role="status"></p>
+</details>
+<div class="connection-row"><div><p><span id="linkBadge" class="badge">Não conectado</span></p><span id="accountName" class="account"></span></div><button id="linkDrive" type="button">Vincular Drive <span aria-hidden="true">↗</span></button></div>
+<a id="authLink" target="_blank" rel="noopener noreferrer" hidden>Continuar autenticação no Google</a><p id="destinationState" class="feedback" role="status" aria-live="polite"></p>
+<p class="hint">Vincule sua conta para configurar o destino. Para trocar de conta, autentique-se novamente na página oficial do Google.</p>
+<div class="destination-location"><span>Pasta de destino</span><a id="folderLink" target="_blank" rel="noopener noreferrer">Aguardando vínculo</a></div>
+<details><summary>Como os arquivos são organizados</summary><p class="hint"><code>dados_do_espectrometro / dd_mm_aaaa / nome_original.spe</code><br>A pasta usa a data de modificação selecionada. Somente o arquivo SPE original é enviado, sem JSON. O vínculo anterior é preservado até a nova autorização ser concluída.</p></details></div></section>
+
+<section class="card destination" aria-label="Notificações por e-mail"><div class="card-heading"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 6 9 7 9-7"/></svg></span><div><h2>Notificações por e-mail</h2><p>Confirmação de atualização e backup no Drive</p></div></div><div class="card-body">
+<div class="mail-summary"><div><span class="mail-caption">Destinatário</span><strong id="emailRecipientSummary">Nenhum e-mail configurado</strong></div><span id="emailConfiguredBadge" class="badge">Desativado</span></div><p id="emailStatus" class="helper-note" role="status"></p><div class="path-actions"><button id="openEmailSettings" class="primary" type="button" aria-haspopup="dialog">Configurar notificações <span aria-hidden="true">↗</span></button></div></div></section>
+</div><aside class="column" aria-label="Operação e atividade">
+<section class="card" aria-label="Serviços"><div class="card-heading"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 12h5l3-8 4 16 3-8h5"/></svg></span><div><h2>Estado da operação</h2><p>Monitoramento e acesso ao destino</p></div></div>
+<div class="service"><div class="service-title"><h3>Monitor de espectros</h3><div id="monitor" class="badge" aria-live="polite">Verificando…</div></div><p id="monitorHint" class="hint">Consultando a atividade do processo local.</p></div>
+<div class="service"><div class="service-title"><h3>Envio ao Google Drive</h3><div id="drive" class="badge" aria-live="polite">Verificando…</div></div><p id="driveHint" class="hint">Verificando o acesso à pasta de destino.</p></div></section>
+<section class="card"><div class="card-heading"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><div><h2>Última atividade</h2><p>Horários locais deste navegador</p></div></div><div class="card-body"><dl>
+<dt>Verificação da pasta local</dt><dd id="scan">—</dd><dt>Aquisição recebida pelo Bridge</dt><dd id="acquisition">—</dd><dt>Sincronização concluída</dt><dd id="sync">—</dd><dt>Verificação de acesso ao Drive</dt><dd id="check">—</dd>
+</dl></div><div class="activity-note">Itens com erro permanecem na fila para nova tentativa.</div></section><section class="card" aria-label="Inicialização automática"><div class="card-heading"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v9M6 6a8 8 0 1 0 12 0"/></svg></span><div><h2>Iniciar com o sistema</h2><p id="startupPlatform">Inicialização automática</p></div></div><div class="card-body"><form id="startupForm"><label class="startup-toggle"><input id="startupEnabled" type="checkbox"><span>Ativar inicialização automática</span></label><label class="startup-label" for="startupMode">Modo ao iniciar</label><select id="startupMode"><option value="offline">Offline — guardar dados localmente</option><option value="online">Online — sincronizar com o Drive</option></select><p class="hint">O monitor inicia ao entrar na sua conta. No Linux, requer uma sessão gráfica com suporte a inicialização automática XDG.</p><div class="path-actions"><button id="saveStartup" type="submit">Salvar inicialização</button></div></form><p id="startupStatus" class="helper-note"></p><p id="startupMessage" class="feedback" role="status" aria-live="polite"></p></div></section></aside></div>
+<footer class="page-footer"><section class="footer-institutions" aria-label="Instituições e projetos de pesquisa"><div class="institution-row"><a href="https://www.fab.mil.br/" target="_blank" rel="noopener noreferrer" title="Força Aérea Brasileira"><img class="fab-symbol" src="/assets/fab-official.png" alt="Logotipo da Força Aérea Brasileira"><span><strong>FAB</strong></span></a><a href="https://www.marinha.mil.br/" target="_blank" rel="noopener noreferrer" title="Marinha do Brasil"><img src="/assets/marinha.png" alt="Brasão da Marinha do Brasil"><span><strong>MARINHA</strong></span></a></div><div class="institution-row"><a href="https://www.ita.br/" target="_blank" rel="noopener noreferrer" title="Instituto Tecnológico de Aeronáutica"><img class="ita-symbol" src="/assets/ita.jpg" alt="Símbolo do ITA"><span><strong>ITA</strong></span></a><a href="https://ieav.dcta.mil.br/" target="_blank" rel="noopener noreferrer" title="Instituto de Estudos Avançados"><img src="/assets/ieav.png" alt="Brasão do IEAv"><span><strong>IEAv</strong></span></a><a href="https://www.gov.br/inpe/pt-br" target="_blank" rel="noopener noreferrer" title="Instituto Nacional de Pesquisas Espaciais"><img class="inpe-symbol" src="/assets/inpe.png" alt="Logotipo do INPE"><span><strong>INPE</strong></span></a><figure class="project-mark"><img src="/assets/mackenzie.png" alt="Logo da Universidade Presbiteriana Mackenzie"><figcaption>Mackenzie</figcaption></figure></div><div class="institution-row"><figure class="project-mark"><img class="wide-symbol" src="/assets/erisa-d.png" alt="Logo ERISA-D"><figcaption>ERISA-D</figcaption></figure><figure class="project-mark"><img src="/assets/imantar.png" alt="Logo IMANTAR — Ionosfera e Mesosfera Antártica"><figcaption>IMANTAR</figcaption></figure></div></section><div class="footer"><div><span id="updated">Atualização automática a cada 3 segundos · acesso local</span></div><button id="refresh" type="button"><span aria-hidden="true">↻</span> Atualizar agora</button></div></footer>
+</main>
+<dialog id="emailDialog" class="destination email-dialog" aria-labelledby="emailDialogTitle" aria-describedby="emailDialogDescription"><div class="picker-header"><div><h2 id="emailDialogTitle">Configurar notificações</h2><p id="emailDialogDescription" class="hint">Receba a confirmação de cada backup concluído no Drive.</p></div><button id="closeEmailDialog" type="button" aria-label="Fechar configuração de e-mail">✕</button></div><div class="email-dialog-body"><div class="mail-section-title"><span>01</span><h3>Quem deve receber</h3></div><form id="emailForm"><label for="notificationEmail">E-mail que receberá as notificações</label><input id="notificationEmail" type="email" autocomplete="email" placeholder="usuario@instituicao.br" aria-describedby="emailHelp"><div class="path-actions"><button id="saveEmail" class="primary" type="submit">Salvar e-mail</button></div></form>
+<p id="emailHelp" class="hint">Um e-mail por lote concluído, após confirmar os arquivos SPE no Google Drive. Deixe o campo vazio e salve para desativar.</p>
+<p id="emailMessage" class="feedback" role="status" aria-live="polite"></p>
+<details class="smtp-details" id="smtpDetails"><summary>Configurar servidor de envio (SMTP)</summary><p class="hint">Use os dados fornecidos pelo seu provedor. Quando exigido, informe uma senha de aplicativo.</p>
+<form id="smtpForm" class="smtp-grid">
+<div class="smtp-wide"><label for="smtpHost">Servidor SMTP</label><input id="smtpHost" required placeholder="smtp.seuprovedor.com" autocomplete="off"></div>
+<div><label for="smtpPort">Porta</label><input id="smtpPort" type="number" min="1" max="65535" value="465" required></div>
+<div><label for="smtpSecurity">Segurança</label><select id="smtpSecurity"><option value="ssl">SSL/TLS (geralmente 465)</option><option value="starttls">STARTTLS (geralmente 587)</option></select></div>
+<div class="smtp-wide"><label for="smtpSender">E-mail remetente</label><input id="smtpSender" type="email" required autocomplete="off" placeholder="notificacoes@instituicao.br"></div>
+<div class="smtp-wide"><label for="smtpUsername">Usuário SMTP</label><input id="smtpUsername" required autocomplete="off"></div>
+<div class="smtp-wide"><label for="smtpPassword">Senha SMTP / senha de aplicativo</label><input id="smtpPassword" type="password" autocomplete="new-password" placeholder="Informe a senha do servidor"><p class="hint">Após salvar, a senha não será exibida. Deixe em branco para manter a senha do mesmo servidor e usuário.</p></div>
+<div class="smtp-wide path-actions"><button id="saveSmtp" type="submit">Salvar servidor</button></div></form><p id="smtpMessage" class="feedback" role="status" aria-live="polite"></p>
+</details></div><div class="picker-footer"><span class="mail-footer-hint">As configurações salvas permanecem após reiniciar.</span><button id="doneEmailDialog" type="button">Fechar</button></div></dialog>
+<dialog id="folderPicker" aria-labelledby="pickerTitle"><div class="picker-header"><h2 id="pickerTitle">Selecionar pasta do MAESTRO</h2><button id="closePicker" type="button" aria-label="Fechar seletor">✕</button></div><div class="picker-body"><p class="picker-info">Navegue pelas pastas deste computador. Depois de escolher, clique em Salvar pasta no painel.</p><div class="picker-toolbar"><button id="folderHome" type="button">Pasta pessoal</button><button id="folderUp" type="button">↑ Pasta acima</button><select id="folderRoots" aria-label="Ir para unidade ou raiz"></select></div><div id="pickerPath" class="picker-path"></div><div id="folderList" class="folder-list" aria-label="Subpastas"></div><p id="pickerError" class="picker-error" role="status" aria-live="polite"></p></div><div class="picker-footer"><button id="cancelPicker" type="button">Cancelar</button><button id="useFolder" class="primary" type="button">Usar esta pasta</button></div></dialog>
+<script>
+const el=id=>document.getElementById(id);
+const labels={monitor:{running:['Em execução','good','O monitor está verificando a pasta de espectros.'],stopped:['Não está rodando','warn','Inicie o Bridge para monitorar aquisições. Esta página, sozinha, não inicia o monitor.'],stale:['Sem resposta recente','bad','O processo pode ter parado ou estar ocupado. Confira o terminal e os logs.'],error:['Pasta indisponível','bad','O processo está ativo, mas não consegue verificar a pasta configurada.']},drive:{online:['Acessível','good','O último teste confirmou acesso à pasta de destino.'],offline:['Sem acesso','bad','Não foi possível acessar a pasta. Verifique internet, autorização e permissões nos logs.'],disabled:['Modo offline','warn','O envio ao Drive está desativado; as aquisições permanecem no computador.'],checking:['Verificando','', 'Aguardando a resposta do Google Drive.'],unknown:['Não confirmado','','Sem confirmação recente de acesso ao Drive.']}};
+function badge(id,key){const [text,style,hint]=labels[id][key]||labels[id][id==='drive'?'unknown':'stopped'];el(id).textContent=text;el(id).className='badge '+style;el(id+'Hint').textContent=hint;}
+function stamp(value){return value?new Date(value*1000).toLocaleString('pt-BR'):'Ainda não registrado';}
+let startupDirty=false,startupSaving=false;
+el('startupForm').addEventListener('change',()=>{startupDirty=true;});
+function renderStartup(s){
+ if(!s)return;
+ el('startupPlatform').textContent=s.platform+' · '+s.trigger;
+ el('saveStartup').disabled=!s.supported||startupSaving;
+ if(!startupDirty&&!startupSaving){el('startupEnabled').checked=s.enabled;el('startupMode').value=s.offline?'offline':'online';}
+ el('startupStatus').textContent=!s.supported?'Não disponível neste sistema.':s.enabled?'Ativado para o próximo login, em modo '+(s.offline?'offline.':'online.'):'Desativado. O projeto é iniciado manualmente.';
+}
+el('startupForm').addEventListener('submit',async event=>{
+ event.preventDefault();startupSaving=true;el('saveStartup').disabled=true;
+ try{const data=await saveMailSettings('/api/autostart',{enabled:el('startupEnabled').checked,offline:el('startupMode').value==='offline'});startupDirty=false;el('startupMessage').textContent=data.enabled?'Configuração salva. A inicialização automática ocorrerá no próximo login.':'Inicialização automática desativada. O monitor atual continua em execução.';}
+ catch(error){el('startupMessage').textContent=error.message;}
+ finally{startupSaving=false;el('saveStartup').disabled=false;await update();}
+});
+let emailDirty=false,smtpDirty=false,emailSaving=false,smtpSaving=false;
+el('openEmailSettings').addEventListener('click',()=>{el('emailDialog').showModal();el('notificationEmail').focus();});
+for(const id of ['closeEmailDialog','doneEmailDialog'])el(id).addEventListener('click',()=>{if(!emailSaving&&!smtpSaving)el('emailDialog').close();});
+el('emailDialog').addEventListener('cancel',event=>{if(emailSaving||smtpSaving)event.preventDefault();});
+el('emailForm').addEventListener('input',()=>{emailDirty=true;});
+el('smtpForm').addEventListener('input',()=>{smtpDirty=true;});
+function renderNotifications(n,drive,monitor){
+ if(!n)return;
+ el('emailRecipientSummary').textContent=n.recipient||'Nenhum e-mail configurado';
+ el('emailConfiguredBadge').textContent=!n.recipient?'Desativado':n.configured?'Configurado':'Configuração pendente';
+ el('emailConfiguredBadge').className='badge '+(n.recipient&&n.configured?'good':'warn');
+ if(!emailDirty&&!emailSaving)el('notificationEmail').value=n.recipient;
+ if(!smtpDirty&&!smtpSaving){for(const [id,key] of [['smtpHost','host'],['smtpPort','port'],['smtpSecurity','security'],['smtpSender','sender'],['smtpUsername','username']])el(id).value=n.smtp[key];}
+ let text=!n.recipient?'Notificações desativadas. Informe o e-mail de destino.':!n.configured?'E-mail salvo. Configure o servidor SMTP para habilitar o envio.':drive==='disabled'?'Configurado. O envio de notificações fica pausado no modo offline.':monitor==='stopped'?'Configurado. Inicie o monitor em modo online para enviar notificações.':'Configurado. Aguardando a conclusão de novos backups no Drive.';
+ if(n.pending)text+=' '+n.pending+' notificação(ões) na fila.';
+ if(n.failed)text+=' Falha no envio: confira servidor, credenciais e conexão. A nova tentativa é automática.';
+ if(n.last_sent)text+=' Última aceitação pelo servidor de e-mail: '+stamp(n.last_sent)+'.';
+ el('emailStatus').textContent=text;
+}
+async function saveMailSettings(route,value){
+ const response=await fetch(route,{method:'POST',headers:{'Content-Type':'application/json','X-CSRF-Token':csrf},body:JSON.stringify(value),signal:AbortSignal.timeout(10000)});
+ const data=await response.json();if(!response.ok)throw Error(data.error||'Não foi possível salvar.');return data;
+}
+el('emailForm').addEventListener('submit',async event=>{
+ event.preventDefault();emailSaving=true;el('saveEmail').disabled=true;
+ try{const data=await saveMailSettings('/api/notifications',{recipient:el('notificationEmail').value});el('notificationEmail').value=data.recipient;emailDirty=false;el('emailMessage').textContent=data.recipient?'E-mail salvo. A configuração será usada nos próximos lotes.':'Notificações desativadas.';}
+ catch(error){el('emailMessage').textContent=error.message;}
+ finally{emailSaving=false;el('saveEmail').disabled=false;await update();}
+});
+el('smtpForm').addEventListener('submit',async event=>{
+ event.preventDefault();smtpSaving=true;el('saveSmtp').disabled=true;
+ try{await saveMailSettings('/api/notifications/smtp',{host:el('smtpHost').value,port:Number(el('smtpPort').value),security:el('smtpSecurity').value,sender:el('smtpSender').value,username:el('smtpUsername').value,password:el('smtpPassword').value});smtpDirty=false;el('smtpPassword').value='';el('smtpMessage').textContent='Servidor salvo. A conexão será utilizada no próximo envio; salvar não confirma a entrega.';}
+ catch(error){el('smtpMessage').textContent=error.message;}
+ finally{smtpSaving=false;el('saveSmtp').disabled=false;await update();}
+});
+let arduinoTimeDirty=false;
+el('arduinoUploadTime').addEventListener('input',()=>{arduinoTimeDirty=true;});
+el('arduinoScheduleForm').addEventListener('submit',async event=>{
+ event.preventDefault();el('saveArduinoTime').disabled=true;
+ try{await saveMailSettings('/api/arduino-schedule',{time:el('arduinoUploadTime').value});arduinoTimeDirty=false;el('arduinoTimeMessage').textContent='Horário do Arduino salvo. O horário do MAESTRO permanece independente.';await update();}
+ catch(error){el('arduinoTimeMessage').textContent=error.message;}
+ finally{el('saveArduinoTime').disabled=false;}
+});
+let arduinoDirty=false;
+el('arduinoPath').addEventListener('input',()=>{arduinoDirty=true;});
+el('arduinoForm').addEventListener('submit',async event=>{
+ event.preventDefault();el('saveArduino').disabled=true;
+ try{const d=await saveMailSettings('/api/arduino-directory',{path:el('arduinoPath').value});el('arduinoPath').value=d.arduino_directory;arduinoDirty=false;el('arduinoMessage').textContent='Pasta salva. O monitor aplicará a mudança no próximo ciclo.';await update();}
+ catch(error){el('arduinoMessage').textContent=error.message;}
+ finally{el('saveArduino').disabled=false;}
+});
+function renderArduino(d){
+ const s=d.arduino_schedule;
+ if(!arduinoTimeDirty)el('arduinoUploadTime').value=s.time||'';
+ el('arduinoScheduleStatus').textContent=s.time?'Envio diário do Arduino às '+s.time+' ('+s.timezone+'). '+(s.due?'Horário atingido: envio liberado.':'Aguardando o horário de envio.'):'Selecione e salve o horário do Arduino. Os envios aguardam essa configuração.';
+ if(!arduinoDirty)el('arduinoPath').value=d.arduino_directory||'';
+ const a=d.arduino;const state=labels.monitor[a.monitor]||labels.monitor.stopped;
+ el('arduinoStatus').textContent=!d.arduino_directory?'Pasta não configurada. Selecione e salve a pasta dos arquivos .txt.':state[0]+(a.monitor==='error'?' — não foi possível acessar a pasta do Arduino.':'')+' · Drive: '+(labels.drive[a.drive]||labels.drive.unknown)[0];
+ el('arduinoCounts').textContent='Arduino: '+a.total+' recebidos · '+((a.states.pending||0)+(a.states.sending||0))+' pendentes · '+(a.states.synced||0)+' enviados · '+a.retry_errors+' com erro';
+}
+let watchDirty=false;
+el("watchPath").addEventListener("input",()=>{watchDirty=true;});
+let busy=false, csrf="", openedAuth="", authWindow=null;
+let clientDirty=false, driveNeedsSetup=false;
+el('driveClientPath').addEventListener('input',()=>{clientDirty=true;});
+el('driveClientForm').addEventListener('submit',async event=>{
+ event.preventDefault();el('saveDriveClient').disabled=true;
+ try{const response=await fetch('/api/drive/client',{method:'POST',headers:{'Content-Type':'application/json','X-CSRF-Token':csrf},body:JSON.stringify({path:el('driveClientPath').value}),signal:AbortSignal.timeout(10000)});const data=await response.json();if(!response.ok)throw Error(data.error||'Falha ao salvar configuração.');clientDirty=false;el('driveClientMessage').textContent='Configuração salva. Clique em Vincular Drive para autorizar sua conta.';await update();}
+ catch(error){el('driveClientMessage').textContent=error.message;}
+ finally{el('saveDriveClient').disabled=false;}
+});
+function renderLink(link){
+ driveNeedsSetup=Boolean(link.setup_error);
+ if(!clientDirty)el('driveClientPath').value=link.client_path||'';
+ el('driveSetupStatus').textContent=link.setup_error||'Arquivo OAuth configurado. A conta será autorizada no Google.';
+
+ const label=el('linkBadge');const mode=link.connection;
+ label.textContent=mode==='online'?'Conectado':mode==='offline'?'Não conectado':link.linked?'Verificando conexão':'Não conectado';
+ label.className='badge '+(mode==='online'?'good':mode==='offline'?'bad':'warn');
+ el('accountName').textContent=link.email||'';
+ el('linkDrive').disabled=['waiting','preparing'].includes(link.phase);
+ el('destinationState').textContent=link.message||link.setup_error||(link.phase==='waiting'?'Aguardando autenticação no Google…':link.phase==='preparing'?'Preparando vínculo…':'');
+ const folder=el('folderLink');folder.textContent=link.folder_id?'dados_do_espectrometro':'Aguardando vínculo';
+ if(link.folder_id)folder.href='https://drive.google.com/drive/folders/'+encodeURIComponent(link.folder_id);else folder.removeAttribute('href');
+ const auth=el('authLink');auth.hidden=!link.auth_url;
+ if(link.auth_url){const target=new URL(link.auth_url);if(target.protocol==='https:'&&target.hostname==='accounts.google.com'){auth.href=target.href;if(openedAuth!==target.href){openedAuth=target.href;if(authWindow&&!authWindow.closed){authWindow.opener=null;authWindow.location=target.href;}}}}
+}
+let uploadTimeDirty=false;
+el('uploadTime').addEventListener('input',()=>{uploadTimeDirty=true;});
+el('uploadScheduleForm').addEventListener('submit',async event=>{
+ event.preventDefault();el('saveUploadTime').disabled=true;
+ try{await saveMailSettings('/api/upload-schedule',{time:el('uploadTime').value});uploadTimeDirty=false;el('uploadTimeMessage').textContent='Horário diário salvo. A configuração será aplicada no próximo ciclo.';await update();}
+ catch(error){el('uploadTimeMessage').textContent=error.message;}
+ finally{el('saveUploadTime').disabled=false;}
+});
+function renderUploadSchedule(s){
+ if(!uploadTimeDirty)el('uploadTime').value=s.time||'';
+ el('uploadScheduleStatus').textContent=s.time?'Envio diário às '+s.time+' ('+s.timezone+'). '+(s.due?'Horário atingido: envio liberado para os arquivos do dia.':'Aguardando o horário de envio.'):'Aguardando configuração do horário diário. Nenhum novo envio será iniciado.';
+}
+async function update(){if(busy)return;busy=true;try{const response=await fetch('/api/status',{cache:'no-store',signal:AbortSignal.timeout(5000)});if(!response.ok)throw Error('status');const d=await response.json();csrf=d.csrf;renderArduino(d);renderUploadSchedule(d.upload_schedule);renderStartup(d.autostart);renderNotifications(d.notifications,d.drive,d.monitor);if(!watchDirty)el("watchPath").value=d.watch_directory||"";el("saveWatch").disabled=!d.can_edit_watch_directory;renderLink(d.link);badge('monitor',d.monitor);badge('drive',d.drive);el('total').textContent=d.total;el('pending').textContent=(d.states.pending||0)+(d.states.sending||0);el('synced').textContent=d.states.synced||0;el('errors').textContent=d.retry_errors;el('scan').textContent=stamp(d.last_scan);el('acquisition').textContent=stamp(d.last_acquisition);el('sync').textContent=stamp(d.last_sync);el('check').textContent=stamp(d.link.checked_at||d.last_check);el('notice').hidden=true;el('updated').textContent='Atualizado às '+new Date().toLocaleTimeString('pt-BR')+' · a cada 3 segundos · acesso local';}catch{el('notice').hidden=false;el('notice').textContent='Sem resposta do servidor. Os valores abaixo podem estar desatualizados.';el('monitor').textContent='Status indisponível';el('monitor').className='badge bad';el('linkBadge').textContent='Conexão não confirmada';el('linkBadge').className='badge warn';badge('drive','unknown');}finally{busy=false;}}
+el('linkDrive').addEventListener('click',async()=>{
+ if(driveNeedsSetup){el('driveSetup').open=true;el('driveClientPath').focus();return;}
+ authWindow=window.open('about:blank','maestro-google-auth');
+ el('linkDrive').disabled=true;
+ try{const response=await fetch('/api/drive/link',{method:'POST',headers:{'Content-Type':'application/json','X-CSRF-Token':csrf},body:'{}',signal:AbortSignal.timeout(6000)});const data=await response.json();if(!response.ok)throw Error(data.error||'Falha ao iniciar autenticação');el('destinationState').textContent='Preparando autenticação…';await update();}
+ catch(error){if(authWindow&&!authWindow.closed)authWindow.close();el('destinationState').textContent=error.message;el('notice').hidden=false;el('notice').textContent=error.message;}
+ finally{el('linkDrive').disabled=false;}
+});
+el('watchForm').addEventListener('submit',async event=>{
+ event.preventDefault();el('saveWatch').disabled=true;
+ try{
+  const response=await fetch('/api/watch-directory',{method:'POST',headers:{'Content-Type':'application/json','X-CSRF-Token':csrf},body:JSON.stringify({path:el('watchPath').value}),signal:AbortSignal.timeout(10000)});
+  const data=await response.json();if(!response.ok)throw Error(data.error||'Não foi possível salvar a pasta.');
+  el('watchPath').value=data.watch_directory;watchDirty=false;
+  el('watchMessage').textContent='Pasta salva. O monitor aplicará a mudança no próximo ciclo; se estiver parado, usará essa pasta ao iniciar.';
+ }catch(error){el('watchMessage').textContent=error.message;}
+ finally{el('saveWatch').disabled=false;}
+});
+let pickerPath='',pickerParent='',pickerBusy=false,pickerTarget='watch';
+async function loadFolders(path){
+ if(pickerBusy)return;pickerBusy=true;el('useFolder').disabled=true;el('pickerError').textContent='Carregando pastas…';
+ try{
+  const response=await fetch('/api/directories',{method:'POST',headers:{'Content-Type':'application/json','X-CSRF-Token':csrf},body:JSON.stringify({path:path||null}),signal:AbortSignal.timeout(10000)});
+  const data=await response.json();if(!response.ok)throw Error(data.error||'Não foi possível abrir esta pasta.');
+  pickerPath=data.path;pickerParent=data.parent;el('pickerPath').textContent=pickerPath;
+  el('folderUp').disabled=pickerPath===pickerParent;
+  const roots=el('folderRoots');roots.replaceChildren();const placeholder=document.createElement('option');placeholder.textContent='Ir para…';placeholder.value='';roots.append(placeholder);
+  for(const root of data.roots){const option=document.createElement('option');option.value=root;option.textContent=root;roots.append(option);}
+  const list=el('folderList');list.replaceChildren();
+  for(const folder of data.directories){const button=document.createElement('button');button.type='button';button.textContent='▸  '+folder.name;button.addEventListener('click',()=>loadFolders(folder.path));list.append(button);}
+  if(!data.directories.length){const empty=document.createElement('p');empty.className='picker-info';empty.style.padding='12px';empty.textContent='Esta pasta não contém subpastas. Você pode selecioná-la.';list.append(empty);}
+  el('pickerError').textContent='';
+ }catch(error){el('pickerError').textContent=error.message;}
+ finally{pickerBusy=false;el('useFolder').disabled=!pickerPath;}
+}
+el('chooseWatch').addEventListener('click',()=>{pickerTarget='watch';el('pickerTitle').textContent='Selecionar pasta do MAESTRO';pickerPath='';el('pickerPath').textContent='';el('folderList').replaceChildren();el('folderPicker').showModal();loadFolders(el('watchPath').value);});
+el('chooseArduino').addEventListener('click',()=>{pickerTarget='arduino';el('pickerTitle').textContent='Selecionar pasta do Sensor Arduino';pickerPath='';el('pickerPath').textContent='';el('folderList').replaceChildren();el('folderPicker').showModal();loadFolders(el('arduinoPath').value);});
+el('folderHome').addEventListener('click',()=>loadFolders(null));el('folderUp').addEventListener('click',()=>loadFolders(pickerParent));
+el('folderRoots').addEventListener('change',event=>{if(event.target.value)loadFolders(event.target.value);});
+for(const id of ['closePicker','cancelPicker'])el(id).addEventListener('click',()=>el('folderPicker').close());
+el('useFolder').addEventListener('click',()=>{if(!pickerPath||pickerBusy)return;el(pickerTarget==='arduino'?'arduinoPath':'watchPath').value=pickerPath;if(pickerTarget==='arduino')arduinoDirty=true;else watchDirty=true;el(pickerTarget==='arduino'?'arduinoMessage':'watchMessage').textContent='Pasta selecionada. Clique em Salvar pasta para confirmar.';el('folderPicker').close();});
+el('refresh').addEventListener('click',update);update();setInterval(update,3000);
+</script>
+</body></html>
