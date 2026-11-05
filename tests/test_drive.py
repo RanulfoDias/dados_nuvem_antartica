@@ -46,7 +46,7 @@ class FakeDrive:
     def get(self, fileId, **kwargs):
         def execute():
             if fileId.startswith('folder'):
-                return {'name': 'dados_do_espectrometro', 'mimeType': 'application/vnd.google-apps.folder',
+                return {'name': 'dados_opd', 'mimeType': 'application/vnd.google-apps.folder',
                         'capabilities': {'canAddChildren': True}}
             body, raw = self.objects[fileId]
             return dict(body, size=str(len(raw)), sha256Checksum=hashlib.sha256(raw).hexdigest())

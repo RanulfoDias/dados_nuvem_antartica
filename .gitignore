@@ -4,6 +4,7 @@ __pycache__/
 build/
 dist/
 config.toml
+config-opd.toml
 data/
 logs/
 *service-account*.json

@@ -7,7 +7,7 @@ import time
 from unittest.mock import MagicMock, patch
 from urllib.parse import urlparse
 import unittest
-from maestro_bridge.link import LinkManager, profile_path, read_profile, effective_drive, root_folder, save_client_path, validate_client
+from maestro_bridge.link import LinkManager, profile_path, read_profile, effective_drive, root_folder, destination_folder, save_client_path, validate_client
 
 
 class FakeFlow:
@@ -74,6 +74,7 @@ class LinkTests(unittest.TestCase):
             self.manager._activate(self.root/'token.json')
         profile = read_profile(self.config)
         self.assertEqual(profile['folder_id'], 'root1')
+        self.assertEqual(profile['destination_name'], 'dados_opd')
         config = {'_path': self.config, 'drive': {'enabled': False, 'folder_id': 'old'}}
         selected = effective_drive(config)
         self.assertEqual(selected['folder_id'], 'root1')
@@ -86,8 +87,38 @@ class LinkTests(unittest.TestCase):
         service.files.return_value.create.return_value.execute.return_value = {'id':'new-root'}
         self.assertEqual(root_folder(service), 'new-root')
         body = service.files.return_value.create.call_args.kwargs['body']
-        self.assertEqual(body['name'], 'dados_do_espectrometro')
+        self.assertEqual(body['name'], 'dados_opd')
         self.assertEqual(body['parents'], ['root'])
+
+    def test_destination_folder_keeps_selected_dados_opd(self):
+        service = MagicMock()
+        service.files.return_value.get.return_value.execute.return_value = {
+            'id': 'root1', 'name': 'dados_opd', 'mimeType': 'application/vnd.google-apps.folder',
+            'trashed': False, 'capabilities': {'canAddChildren': True}}
+        self.assertEqual(destination_folder(service, 'root1'), 'root1')
+        service.files.return_value.list.assert_not_called()
+
+    def test_destination_folder_resolves_child_named_dados_opd(self):
+        service = MagicMock()
+        service.files.return_value.get.return_value.execute.return_value = {
+            'id': 'parent1', 'name': 'Compartilhado', 'mimeType': 'application/vnd.google-apps.folder',
+            'trashed': False, 'capabilities': {'canAddChildren': True}}
+        service.files.return_value.list.return_value.execute.return_value = {'files': [{
+            'id': 'root1', 'name': 'dados_opd', 'mimeType': 'application/vnd.google-apps.folder',
+            'trashed': False, 'capabilities': {'canAddChildren': True}}]}
+        self.assertEqual(destination_folder(service, 'parent1'), 'root1')
+
+    def test_destination_folder_creates_root_inside_selected_parent(self):
+        service = MagicMock()
+        service.files.return_value.get.return_value.execute.return_value = {
+            'id': 'parent1', 'name': 'Compartilhado', 'mimeType': 'application/vnd.google-apps.folder',
+            'trashed': False, 'capabilities': {'canAddChildren': True}}
+        service.files.return_value.list.return_value.execute.return_value = {'files': []}
+        service.files.return_value.create.return_value.execute.return_value = {'id': 'root1'}
+        self.assertEqual(destination_folder(service, 'parent1'), 'root1')
+        body = service.files.return_value.create.call_args.kwargs['body']
+        self.assertEqual(body['name'], 'dados_opd')
+        self.assertEqual(body['parents'], ['parent1'])
 
     def _callback_flow(self, denied):
         instance = FakeFlow()

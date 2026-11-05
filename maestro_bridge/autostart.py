@@ -14,7 +14,7 @@ _LOCK = threading.Lock()
 
 def identity(config_path):
     digest = hashlib.sha256(str(Path(config_path).resolve()).encode()).hexdigest()[:12]
-    return 'br.ferraz.bridge.' + digest
+    return 'br.opd.bridge.' + digest
 
 
 def command(config_path, offline):
@@ -132,7 +132,7 @@ def configure(config_path, enabled, offline=True):
                     'StandardOutPath':str(log), 'StandardErrorPath':str(log)})
                 _write(path, content)
             else:
-                content = '[Desktop Entry]\nType=Application\nName=Estação Antártica Comandante Ferraz\nComment=Monitor de aquisições e backup no Drive\n'
+                content = '[Desktop Entry]\nType=Application\nName=Observatório do Pico dos Dias\nComment=Monitor de aquisições científicas e backup no Drive\n'
                 content += 'Exec='+' '.join(desktop_quote(arg) for arg in args)+'\nTerminal=false\nX-GNOME-Autostart-enabled=true\n'
                 _write(path, content.encode('utf-8'))
         return status(config_path)

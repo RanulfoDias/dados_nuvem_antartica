@@ -11,7 +11,7 @@ from pathlib import Path, PureWindowsPath
 import sqlite3
 import tempfile
 
-SCOPES = ['https://www.googleapis.com/auth/drive.file']
+SCOPES = ['https://www.googleapis.com/auth/drive']
 
 
 def save_token(path, credentials):
@@ -56,10 +56,12 @@ def service_from_token(token_file):
 
 
 class DriveBackend:
-    def __init__(self, *, folder_id, token_file, database, service=None, media_factory=None, subdirectory=None):
+    def __init__(self, *, folder_id, token_file, database, service=None, media_factory=None,
+                 root_directory='dados_opd', subdirectory=None):
         if not folder_id or not all(c.isalnum() or c in '_-' for c in folder_id):
             raise ValueError('drive.folder_id must be a folder ID, not a URL')
         self.subdirectory = subdirectory
+        self.root_directory = root_directory
         self.folder_id = folder_id
         self.database = database
         self.directories = {}
@@ -103,7 +105,7 @@ class DriveBackend:
     def check_connection(self):
         folder = self.service.files().get(fileId=self.folder_id, fields='id,name,mimeType,trashed,capabilities(canAddChildren)',
                                           supportsAllDrives=True).execute()
-        self.root_named = folder.get('name') == 'dados_do_espectrometro'
+        self.root_named = folder.get('name') == self.root_directory
         if (folder.get('mimeType') != 'application/vnd.google-apps.folder' or folder.get('trashed')
                 or not folder.get('capabilities', {}).get('canAddChildren')):
             raise ValueError('Destination must be an accessible, writable Google Drive folder')
@@ -156,7 +158,7 @@ class DriveBackend:
         if not row[0]:
             raise ValueError('Data de modificação não registrada; selecione a data e verifique a pasta local.')
         name = datetime.strptime(row[0], '%Y-%m-%d').strftime('%d_%m_%Y')
-        root = self.folder_id if self.root_named else self._directory(self.folder_id, 'dados_do_espectrometro')
+        root = self.folder_id if self.root_named else self._directory(self.folder_id, self.root_directory)
         if self.subdirectory:
             root = self._directory(root, self.subdirectory)
         return self._directory(root, name)

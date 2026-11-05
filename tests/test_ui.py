@@ -50,7 +50,7 @@ class UITests(unittest.TestCase):
             connection.request('GET', '/')
             response = connection.getresponse()
             self.assertEqual(response.status, 200)
-            self.assertIn('Estação Antártica Comandante Ferraz'.encode(), response.read())
+            self.assertIn('Observatório do Pico dos Dias'.encode(), response.read())
             connection.request('GET', '/api/status')
             response = connection.getresponse()
             self.assertEqual(response.getheader('Cache-Control'), 'no-store')

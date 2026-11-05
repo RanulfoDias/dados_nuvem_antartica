@@ -62,8 +62,8 @@ def read_config(path):
     telemetry = config.setdefault('firebase_status', {})
     if not isinstance(telemetry.setdefault('enabled', False), bool):
         raise ValueError('firebase_status.enabled must be true or false')
-    telemetry.setdefault('project_id', 'banco-de-dados-da-antartica')
-    identity = telemetry.setdefault('instance_id', 'estacao-ferraz')
+    telemetry.setdefault('project_id', '')
+    identity = telemetry.setdefault('instance_id', 'opd')
     import re
     if not isinstance(identity, str) or not re.fullmatch(r'[A-Za-z0-9_-]{1,100}', identity):
         raise ValueError('firebase_status.instance_id must use letters, digits, underscore or hyphen')

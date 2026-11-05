@@ -1,13 +1,7 @@
-Símbolos preservados sem redesenho ou alteração de cores.
-ITA: https://www.bibl-old.ita.br/logomarca%20arquivos%20de%20imagem.zip (ita_rgb.jpg)
-IEAv: http://ieav.dcta.mil.br/images/Logo_IEAv.png
-Marinha: https://airlung.com.br/img/clientes/marinha-do-brasil-vector-logo.png (reprodução do brasão tradicional)
-Referência visual: https://www.marinha.mil.br/identidade-visual-marinha
-Paleta da interface: adaptação em azul aeronáutico, azul escuro, branco e dourado; não apresentada como especificação cromática oficial homologada.
+Painel institucional do projeto OPD
 
-PROANTAR: imagem atualizada fornecida pelo usuário em 20/10/2026 (proantar.png).
-FAB: https://www.gov.br/gestao/pt-br/assuntos/noticias/2026/fevereiro/ministerio-da-gestao-autoriza-contratacao-temporaria-de-489-profissionais-para-o-comando-da-aeronautica/gladio_2d_vertical-azul.png
+opd-institutions.png — painel ilustrativo produzido a partir da fotografia fornecida pelo proprietário do projeto em 04/11/2026. A arte base recompõe visualmente as marcas da referência.
+opd-ieav.png — brasão fornecido pelo proprietário do projeto em 04/11/2026.
+opd-erisa-d.png — logo ERISA-D fornecido pelo proprietário do projeto em 04/11/2026.
 
-INPE: https://www.gov.br/inpe/pt-br/eventos/worcap-2026/repositorio-de-imagens/Logo_INPE.png
-
-Mackenzie, IMANTAR e ERISA-D: imagens fornecidas pelo usuário, preservadas sem alterações.
+Os logos fornecidos pelo proprietário são usados como substituições exatas sobre as posições correspondentes do painel ilustrativo.

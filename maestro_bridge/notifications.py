@@ -120,11 +120,11 @@ def send_email(smtp, row):
     message = EmailMessage()
     message['From'] = smtp['sender']
     message['To'] = row['recipient']
-    message['Subject'] = f"Estação Ferraz: backup no Drive concluído ({event['count']} aquisições)"
+    message['Subject'] = f"OPD: backup no Drive concluído ({event['count']} aquisições)"
     message['Message-ID'] = f"<{row['id']}@maestro-bridge.local>"
     moment = datetime.fromtimestamp(event['completed_at'], timezone.utc).strftime('%d/%m/%Y %H:%M:%S UTC')
     folder = 'https://drive.google.com/drive/folders/' + quote(event['folder_id'], safe='')
-    message.set_content(f"Estação Antártica Comandante Ferraz\n\n"
+    message.set_content(f"Observatório do Pico dos Dias — OPD\n\n"
         f"A cópia de segurança no Google Drive foi concluída.\n"
         f"Aquisições confirmadas neste lote: {event['count']}\n"
         f"Cada aquisição inclui o arquivo SPE original e o JSON científico.\n"

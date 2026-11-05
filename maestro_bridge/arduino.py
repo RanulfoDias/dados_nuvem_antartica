@@ -74,7 +74,8 @@ def run(config, offline, stop):
                             backend = None
                         if backend is None:
                             backend = ArduinoDailyBackend(folder_id=drive.get('folder_id'), token_file=drive['token_file'],
-                                                   database=database_path(settings['database']), subdirectory='sensor_arduino')
+                                                   database=database_path(settings['database']), root_directory='dados_opd',
+                                                   subdirectory='sensor_arduino')
                             identity = selected
                             checked = time.monotonic()
                         elif time.monotonic() - checked >= 60:

@@ -12,7 +12,7 @@ from wsgiref.simple_server import make_server, WSGIRequestHandler
 from .destination import _EDIT_LOCK, _save_setting
 from .drive import SCOPES, save_token, service_from_token
 
-ROOT_NAME = 'dados_do_espectrometro'
+ROOT_NAME = 'dados_opd'
 
 
 def profile_path(config_path):
@@ -34,12 +34,43 @@ def effective_drive(config):
 
 def root_folder(service):
     query = ("trashed=false and 'root' in parents and mimeType='application/vnd.google-apps.folder' "
-             "and name='dados_do_espectrometro' and appProperties has { key='maestro_root' and value='1' }")
+             "and name='dados_opd' and appProperties has { key='maestro_root' and value='1' }")
     found = service.files().list(q=query, fields='files(id)', pageSize=100).execute()['files']
     if found:
         return sorted(item['id'] for item in found)[0]
     return service.files().create(body={'name': ROOT_NAME, 'mimeType': 'application/vnd.google-apps.folder',
         'parents': ['root'], 'appProperties': {'maestro_root': '1'}}, fields='id').execute()['id']
+
+
+def destination_folder(service, folder_id):
+    """Resolve a selected Drive folder to the actual ``dados_opd`` upload root."""
+    selected = service.files().get(fileId=folder_id,
+        fields='id,name,mimeType,trashed,capabilities(canAddChildren)',
+        supportsAllDrives=True).execute()
+    if (selected.get('mimeType') != 'application/vnd.google-apps.folder'
+            or selected.get('trashed')
+            or not selected.get('capabilities', {}).get('canAddChildren')):
+        raise ValueError('A pasta informada não existe ou a conta Google não pode gravar nela.')
+    if selected.get('name') == ROOT_NAME:
+        return selected['id']
+
+    query = (f"'{selected['id']}' in parents and trashed=false "
+             "and mimeType='application/vnd.google-apps.folder' "
+             f"and name='{ROOT_NAME}'")
+    found = service.files().list(q=query,
+        fields='files(id,name,mimeType,trashed,capabilities(canAddChildren))',
+        pageSize=100, supportsAllDrives=True, includeItemsFromAllDrives=True).execute()['files']
+    for child in sorted(found, key=lambda item: item['id']):
+        if (child.get('name') == ROOT_NAME
+                and child.get('mimeType') == 'application/vnd.google-apps.folder'
+                and not child.get('trashed')):
+            if not child.get('capabilities', {}).get('canAddChildren'):
+                raise ValueError('A pasta dados_opd encontrada não permite gravação pela conta Google.')
+            return child['id']
+    return service.files().create(body={'name': ROOT_NAME,
+        'mimeType': 'application/vnd.google-apps.folder', 'parents': [selected['id']],
+        'appProperties': {'maestro_root': '1'}}, fields='id',
+        supportsAllDrives=True).execute()['id']
 
 
 def validate_client(path):
@@ -156,8 +187,14 @@ class LinkManager:
         service = service_from_token(token_file)
         try:
             user = service.about().get(fields='user(emailAddress,permissionId)').execute()['user']
-            folder = root_folder(service)
-            profile = {'folder_id': folder, 'token_file': str(Path(token_file).resolve()),
+            config = tomllib.loads(Path(self.config_path).read_text(encoding='utf-8'))
+            folder = config.get('drive', {}).get('folder_id', '').strip()
+            if folder:
+                folder = destination_folder(service, folder)
+            else:
+                folder = root_folder(service)
+            profile = {'folder_id': folder, 'destination_name': ROOT_NAME,
+                       'token_file': str(Path(token_file).resolve()),
                        'email': user.get('emailAddress', ''), 'account_id': user['permissionId']}
             path = profile_path(self.config_path)
             # Credentials and folder must be ready before replacing the old profile.
@@ -173,6 +210,8 @@ class LinkManager:
 
     def status(self):
         profile = read_profile(self.config_path)
+        config = tomllib.loads(Path(self.config_path).read_text(encoding='utf-8')) if self.config_path else {}
+        configured_folder = config.get('drive', {}).get('folder_id', '')
         client = client_path(self.config_path)
         try:
             validate_client(client)
@@ -185,7 +224,8 @@ class LinkManager:
                 threading.Thread(target=self._probe, args=(profile,), daemon=True).start()
             return {'client_path': str(client), 'setup_error': setup_error, 'phase': self.phase, 'message': self.message, 'auth_url': self.auth_url,
                     'linked': profile is not None, 'email': profile.get('email', '') if profile else '',
-                    'folder_id': profile.get('folder_id', '') if profile else '',
+                    'folder_id': profile.get('folder_id', '') if profile else configured_folder,
+                    'folder_ready': bool(profile and profile.get('destination_name') == ROOT_NAME),
                     'connection': (self.connection if time.time()-self.checked_at <= 120 else 'unknown') if profile else 'unlinked', 'checked_at': self.checked_at}
 
     def _probe(self, profile):
@@ -193,7 +233,7 @@ class LinkManager:
         state = 'offline'
         try:
             service = service_from_token(profile['token_file'])
-            folder = service.files().get(fileId=profile['folder_id'], fields='trashed,capabilities(canAddChildren)').execute()
+            folder = service.files().get(fileId=profile['folder_id'], fields='trashed,capabilities(canAddChildren)', supportsAllDrives=True).execute()
             if not folder.get('trashed') and folder.get('capabilities', {}).get('canAddChildren'):
                 state = 'online'
         except Exception:

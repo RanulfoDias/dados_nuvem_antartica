@@ -134,7 +134,7 @@ def make_server(database, port=8765, *, config_path=None):
             route = self.path.split('?', 1)[0]
             if route == '/':
                 body, mime, status = page, 'text/html; charset=utf-8', 200
-            elif route in ('/assets/ferraz.png', '/assets/ita.jpg', '/assets/ieav.png', '/assets/marinha.png', '/assets/proantar.png', '/assets/inpe.png', '/assets/fab-official.png', '/assets/mackenzie.png', '/assets/imantar.png', '/assets/erisa-d.png'):
+            elif route in ('/assets/opd-institutions.png', '/assets/opd-ieav.png', '/assets/opd-erisa-d.png'):
                 body = files('maestro_bridge').joinpath(route.lstrip('/')).read_bytes()
                 mime = 'image/jpeg' if route.endswith('.jpg') else 'image/png'
                 status = 200
